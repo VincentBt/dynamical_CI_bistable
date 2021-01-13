@@ -1,5 +1,4 @@
-%Same as run_vincent.m, except we set intelligently the parameters (so that
-%SP<0.85 and SP>0.65, in order for the data to be informative enough)
+%main file
 
 clear
 close all
@@ -11,13 +10,13 @@ Ton = 10;
 T = [1 10 50 200 500];
 
 %Number of repetition of each off duration during the "experiment"
-Nexp=10; %5000; %2000;
+Nexp=5000; %2000; %take Nexp=10 for an example
 
 %Number of repetition of each off duration during each run of the model
-Nmod=10; %2000; %2000;
+Nmod=2000; %take Nmod=10 for an example
 
 %Number of random initial settings for patternsearch
-Nit=2; %50; %50;
+Nit=50; %take Nit=2 for an example
 
 
 
@@ -35,6 +34,8 @@ for i=1:N
     i
     SPon = 0; SPoff = 0;
     cpt = 0;
+    %Here we set intelligently the parameters, so that SP<0.85 and SP>0.65,
+    %in order for the data to be informative enough
 %     while min([SPon(1) SPoff(1)])<0.65 | max([SPon(1) SPoff(1)])>0.85
     while (SPon(1)<0.65 & SPoff(1)<0.65) | max([SPon(1) SPoff(1)])>0.85
         % Set parameters
